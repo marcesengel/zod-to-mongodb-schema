@@ -34,7 +34,7 @@ with `mongoUserSchema` being
 | Name | Required | Type | Description |
 | ---- | -------- | ---- | ----------- |
 | `zodObjectId` | Yes | `ZodAnyType` | The zod schema you use to validate object ids (for example `z.custom<ObjectId | string>(value => ...)`). This is used to detect ObjectIds in your schema by doing a strict equality check (`===`). |
-| `onUnsupported` | No (default: `warn`) | `'error' | 'warn' | 'no-op'` | How to handle unsupported validations (see below). |
+| `onUnsupported` | No (default: `'warn'`) | `'error'` or `'warn'` or `'no-op'` | How to handle unsupported validations (see below). |
 
 ## Supported validators
 
