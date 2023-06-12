@@ -1,6 +1,6 @@
 import { ZodTypeAny } from 'zod'
 
-type MongoSchema = { bsonType: 'string' }
+import { MongoSchema } from './MongoSchema'
 
 export default function zodToMongoDbSchema(zodSchema: ZodTypeAny): MongoSchema {
   return {
