@@ -3,6 +3,7 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "noEmit": true,
-    "strict": true
+    "strict": true,
+    "stripInternal": true
   }
 }
