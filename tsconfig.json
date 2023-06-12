@@ -1,0 +1,8 @@
+{
+  "include": ["src", "tests", "rollup.config.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true
+  }
+}
