@@ -2,7 +2,7 @@
 
 Converts [Zod schemas](https://zod.dev/) to [MongoDB validation schemas](https://www.mongodb.com/docs/manual/core/schema-validation/specify-json-schema).
 Inspired by [zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-schema),
-but became a separate packages as the overlap between what MongoDB uses and Draft 7
+but became a separate package as the overlap between what MongoDB uses and Draft 7
 was deemed to little.
 
 ## Usage
