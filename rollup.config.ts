@@ -25,7 +25,7 @@ const bundle: RollupOptions = {
       tsconfig: './tsconfig.build.json',
     }),
   ],
-  external: ['graphql'],
+  external: ['zod'],
 }
 
 export default bundle

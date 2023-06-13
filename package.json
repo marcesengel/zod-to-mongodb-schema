@@ -5,8 +5,11 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "scripts": {
-    "build": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "build": "rm -rf dist; rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "jest"
   },
   "keywords": [

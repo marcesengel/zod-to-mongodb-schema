@@ -4,6 +4,7 @@
   "compilerOptions": {
     "noEmit": true,
     "strict": true,
-    "stripInternal": true
+    "stripInternal": true,
+    "target": "ES2016"
   }
 }
