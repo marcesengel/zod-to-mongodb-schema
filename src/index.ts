@@ -2,6 +2,7 @@ import { ZodTypeAny } from 'zod'
 
 import { MongoSchema } from './MongoSchema'
 import { Options, clearOptions, setOptions } from './options'
+import parseDef from './parseDef'
 
 export default function zodToMongoDbSchema(
   zodSchema: ZodTypeAny,
@@ -11,10 +12,15 @@ export default function zodToMongoDbSchema(
   setOptions(options)
 
   try {
-    return {
-      bsonType: 'string',
+    const mongoSchema = parseDef(zodSchema._def)
+    if (!mongoSchema) {
+      throw new Error('Root type not supported.')
     }
+
+    return mongoSchema
   } finally {
     clearOptions()
   }
 }
+
+export type { Options } from './options'

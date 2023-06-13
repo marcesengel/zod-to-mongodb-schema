@@ -52,7 +52,10 @@ export type MongoSchemaBool = MongoSchemaBase<'bool', boolean>
 // do this Pick to cascade renaming of bsonType if need be
 export type MongoSchemaNull = Pick<MongoSchemaBase<'null'>, 'bsonType'>
 
-export type MongoSchemaAbstract = Omit<MongoSchemaBase<BsonType>, 'bsonType'>
+export type MongoSchemaAbstract = Omit<
+  MongoSchemaBase<BsonType, any>,
+  'bsonType'
+>
 
 export type MongoSchema =
   | MongoSchemaNumber
