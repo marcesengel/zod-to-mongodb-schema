@@ -9,8 +9,10 @@
     "node": ">= 8.0.0"
   },
   "scripts": {
+    "prebuild": "npm run typecheck && npm run test",
     "build": "rm -rf dist; rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc"
   },
   "keywords": [
     "zod",
