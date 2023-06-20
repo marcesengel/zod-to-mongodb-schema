@@ -49,6 +49,20 @@ const testCases: TestCaseGroup[] = [
       ],
     ],
   },
+  {
+    name: 'z.object()',
+    testCases: [
+      ['empty', z.object({}), { bsonType: 'object' }],
+      [
+        '({ number: z.number() })',
+        z.object({ number: z.number() }),
+        [
+          ['properties', { number: { bsonType: 'double' } }],
+          ['required', ['number']],
+        ],
+      ],
+    ],
+  },
 ]
 
 export default testCases
