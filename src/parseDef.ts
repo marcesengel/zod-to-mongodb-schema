@@ -19,7 +19,7 @@ export default function parseDef(def: ZodTypeDef) {
 
   const parse = parseFnByKind[def.typeName]
   if (!parse) {
-    handleUnsupported(`typeName '${def.typeName}' not supported.`)
+    handleUnsupported(`'${def.typeName}' not supported.`)
     return
   }
 
