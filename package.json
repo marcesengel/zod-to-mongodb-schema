@@ -1,6 +1,6 @@
 {
   "name": "zod-to-mongodb-schema",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Tool to convert Zod schemas to draft 4 JSON schemas compatible with MongoDB validation.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
