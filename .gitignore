@@ -20,6 +20,7 @@ coverage
 .nyc_output
 
 # IDEs and editors
+/.vscode
 /.idea
 .project
 .classpath
