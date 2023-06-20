@@ -1,7 +1,6 @@
 import { z } from 'zod'
 
 import zodToMongoSchema, { Options } from '../src'
-
 import testCaseGroups from './testCases'
 
 describe('zod-to-mongodb-schema', () => {

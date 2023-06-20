@@ -6,13 +6,18 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">= 12"
   },
   "scripts": {
-    "prebuild": "npm run typecheck && npm run test",
     "build": "rm -rf dist; rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "jest",
-    "typecheck": "tsc"
+    "test:ci": "jest --ci",
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "format:check": "prettier . --check",
+    "format:write": "prettier . --write",
+    "prepublishOnly": "npm run format:check && npm run lint && npm run typecheck && npm run test:ci",
+    "prepare": "npm run build"
   },
   "keywords": [
     "zod",
@@ -22,11 +27,12 @@
     "schema",
     "convert"
   ],
-  "author": "",
+  "author": "Marces Engel <mengel@facemurphy.com>",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/jest": "^29.5.1",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",

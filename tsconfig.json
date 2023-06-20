@@ -6,7 +6,7 @@
     "noEmit": true,
     "strict": true,
     "stripInternal": true,
-    "target": "ES2016",
+    "target": "ES2019",
     "skipLibCheck": true
   }
 }
