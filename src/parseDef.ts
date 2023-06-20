@@ -6,12 +6,13 @@ import {
 
 import { MongoSchema } from './MongoSchema'
 import parseNumberDef from './defParsers/parseNumberDef'
+import parseObjectDef from './defParsers/parseObjectDef'
 import parseStringDef from './defParsers/parseStringDef'
 import handleUnsupported from './handleUnsupported'
 
 type ZodDef = ZodFirstPartySchemaTypes['_def']
 
-export default function parseDef(def: ZodTypeDef) {
+export default function parseDef(def: ZodTypeDef): MongoSchema | undefined {
   if (!isZodFirstPartyDef(def)) {
     handleUnsupported('Only first party zod types are supported.')
     return
@@ -39,4 +40,5 @@ type ParserFnByKind = Partial<{
 const parseFnByKind: ParserFnByKind = {
   [ZodFirstPartyTypeKind.ZodString]: parseStringDef,
   [ZodFirstPartyTypeKind.ZodNumber]: parseNumberDef,
+  [ZodFirstPartyTypeKind.ZodObject]: parseObjectDef,
 }
