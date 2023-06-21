@@ -2,6 +2,7 @@ import { ZodFirstPartyTypeKind, ZodTypeDef } from 'zod'
 
 import { DefParser, ZodDef } from './DefParser'
 import { MongoSchema, MongoSchemaBool } from './MongoSchema'
+import parseDateDef from './defParsers/parseDateDef'
 import parseNullableDef from './defParsers/parseNullableDef'
 import parseNumberDef from './defParsers/parseNumberDef'
 import parseObjectDef from './defParsers/parseObjectDef'
@@ -38,5 +39,6 @@ const parseFnByKind: ParserFnByKind = {
   [ZodFirstPartyTypeKind.ZodBoolean]: (): MongoSchemaBool => ({
     bsonType: 'bool',
   }),
+  [ZodFirstPartyTypeKind.ZodDate]: parseDateDef,
   [ZodFirstPartyTypeKind.ZodNullable]: parseNullableDef,
 }

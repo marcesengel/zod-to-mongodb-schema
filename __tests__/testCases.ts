@@ -55,6 +55,10 @@ const testCases: TestCaseGroup[] = [
     testCases: [['', z.boolean(), { bsonType: 'bool' }]],
   },
   {
+    name: 'z.date()',
+    testCases: [['', z.date(), { bsonType: 'date' }]],
+  },
+  {
     name: 'z.object()',
     testCases: [
       [
