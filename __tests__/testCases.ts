@@ -58,6 +58,7 @@ const testCases: TestCaseGroup[] = [
     name: 'z.date()',
     testCases: [['', z.date(), { bsonType: 'date' }]],
   },
+  { name: 'z.null()', testCases: [['', z.null(), { bsonType: 'null' }]] },
   {
     name: 'z.object()',
     testCases: [
@@ -84,6 +85,26 @@ const testCases: TestCaseGroup[] = [
           properties: { number: { bsonType: 'double' } },
           additionalProperties: false,
         },
+      ],
+    ],
+  },
+  {
+    name: 'z.array()',
+    testCases: [
+      [
+        'z.array(z.number())',
+        z.array(z.number()),
+        { bsonType: 'array', items: { bsonType: 'double' } },
+      ],
+      [
+        'z.array(z.number()).min(5)',
+        z.array(z.number()).min(5),
+        ['minItems', 5],
+      ],
+      [
+        'z.array(z.number()).max(5)',
+        z.array(z.number()).max(5),
+        ['maxItems', 5],
       ],
     ],
   },
