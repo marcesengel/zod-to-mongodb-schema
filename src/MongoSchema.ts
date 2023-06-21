@@ -1,5 +1,5 @@
 export type MongoSchemaBase<TType extends BsonType, TValue = never> = {
-  bsonType: TType
+  bsonType: TType | readonly [TType, 'null']
   title?: string
   description?: string
   allOf?: MongoSchema[]

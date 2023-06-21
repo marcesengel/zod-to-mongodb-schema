@@ -1,7 +1,7 @@
 import { ZodNumberDef } from 'zod'
 
+import { DefParser } from '../DefParser'
 import { MongoSchema, MongoSchemaNumber } from '../MongoSchema'
-import { DefParser } from '../parseDef'
 
 const parseNumberDef: DefParser<ZodNumberDef> = (def): MongoSchemaNumber => {
   const mongoSchema: MongoSchemaNumber = {

@@ -12,6 +12,7 @@ const testCases: TestCaseGroup[] = [
     name: 'z.string()',
     testCases: [
       ['', z.string(), { bsonType: 'string' }],
+      ['.nullable()', z.string().nullable(), { bsonType: ['string', 'null'] }],
       [
         '.email()',
         z.string().email(),
@@ -50,9 +51,19 @@ const testCases: TestCaseGroup[] = [
     ],
   },
   {
+    name: 'z.boolean()',
+    testCases: [['', z.boolean(), { bsonType: 'bool' }]],
+  },
+  {
     name: 'z.object()',
     testCases: [
-      ['empty', z.object({}), { bsonType: 'object' }],
+      [
+        'empty',
+        z.object({}),
+        { bsonType: 'object', additionalProperties: false },
+      ],
+      ['.strict()', z.object({}).strict(), ['additionalProperties', false]],
+      ['.passthrough()', z.object({}).passthrough(), { bsonType: 'object' }],
       [
         '({ number: z.number() })',
         z.object({ number: z.number() }),
@@ -60,6 +71,15 @@ const testCases: TestCaseGroup[] = [
           ['properties', { number: { bsonType: 'double' } }],
           ['required', ['number']],
         ],
+      ],
+      [
+        '({ number: z.number().optional() })',
+        z.object({ number: z.number().optional() }),
+        {
+          bsonType: 'object',
+          properties: { number: { bsonType: 'double' } },
+          additionalProperties: false,
+        },
       ],
     ],
   },

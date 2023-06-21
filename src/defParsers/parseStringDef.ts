@@ -1,8 +1,8 @@
 import { ZodStringDef } from 'zod'
 
+import { DefParser } from '../DefParser'
 import { MongoSchemaString } from '../MongoSchema'
 import handleUnsupported from '../handleUnsupported'
-import { DefParser } from '../parseDef'
 
 const parseStringDef: DefParser<ZodStringDef> = (def): MongoSchemaString => {
   const mongoSchema: MongoSchemaString = { bsonType: 'string' }
