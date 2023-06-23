@@ -64,8 +64,8 @@ Not that unsupported validators can be used in your schema, they will result in 
 | `literal()` | WIP | - |
 | `enum()` | WIP | - |
 | `nativeEnum()` | WIP | - |
-| `map()` | WIP | - |
-| `set()` | WIP | - |
+| `map()` | &#10060; | See `bigint()`. |
+| `set()` | &#10060; | See `bigint()`. |
 | `lazy()` | WIP | - |
 | `promise()` | &#10060; | - |
 | `nan()` | WIP | Might be possible by using `bsonType: 'double'` with `enum: [ NaN ]` but I have no idea how to serialize `NaN`. |
