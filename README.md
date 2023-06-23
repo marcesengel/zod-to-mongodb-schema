@@ -5,8 +5,6 @@ Inspired by [zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-sc
 but became a separate package as the overlap between what MongoDB uses and Draft 7
 was deemed to little.
 
-For `z.object()` the behaviour is as follows: `z.object()`/`o.strict()`/`o.strip()` will result in `additionalProperties: false`, `o.passthrough()` will allow for additional keys.
-
 ## Usage
 
 ```ts
