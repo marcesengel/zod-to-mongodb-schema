@@ -31,7 +31,7 @@ with `mongoUserSchema` being
 // TODO: insert result
 ```
 
-## Configuration
+## Options
 
 | Name | Required | Type | Description |
 | ---- | -------- | ---- | ----------- |
@@ -40,6 +40,39 @@ with `mongoUserSchema` being
 
 ## Supported validators
 
-All the common validators are supported, f.e. `z.string().max(n)`. Some more uncommon
-ones lack support (think of `z.string().emoji()`) - however these will simply result
-in no-ops and either an error, warning log or nothing at all depending on configuration.
+For each supported validator, all modifiers which can be implemented in MongoDB are supported (for example `z.string().email()` is supported by using the RegEx used by `zod` itself).
+
+Not that unsupported validators can be used in your schema, they will result in `{}`. If you'd like to receive errors when you're using unsupported validators, see the options above.
+
+| Zod | Supported | Remarks |
+| --- | --------- | ------- |
+| `string()` | &#9989; | - |
+| `number()` | &#9989; | Uses `bsonType: 'long'` for `.int()`. |
+| `object()` | &#9989; | Sets `additionalProperties: false` unless `.passthrough()` is specified. |
+| `bigint()` | &#10060; | The MongoDB driver doesn't support (de-)serializing `BigInt`. |
+| `boolean()` | &#9989; | - |
+| `date()` | &#9989; | `min` and `max` not supported by MongoDB. |
+| `undefined()` | &#10060; | [Flagged as deprecated.](https://www.mongodb.com/docs/manual/reference/bson-types/) |
+| `void()` | &#10060; | See above. |
+| `null()` | &#9989; | - |
+| `array()` | &#9989; | - |
+| `union()` | WIP | - |
+| `discriminatedUnion()` | WIP | - |
+| `intersection()` | WIP | - |
+| `tuple()` | WIP | - |
+| `record()` | WIP | - |
+| `literal()` | WIP | - |
+| `enum()` | WIP | - |
+| `nativeEnum()` | WIP | - |
+| `map()` | WIP | - |
+| `set()` | WIP | - |
+| `lazy()` | WIP | - |
+| `promise()` | &#10060; | - |
+| `nan()` | WIP | Might be possible by using `bsonType: 'double'` with `enum: [ NaN ]` but I have no idea how to serialize `NaN`. |
+| `never()` | WIP | - |
+| `preprocess()` | WIP | No-op. |
+| `refine()` | WIP | No-op. |
+| `transform()` | WIP | No-op. |
+| `function()` | WIP | No validation besides it being a function. |
+| `symbol()` | &#10060; | See `undefined()`. |
+
