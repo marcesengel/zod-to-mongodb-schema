@@ -108,6 +108,16 @@ const testCases: TestCaseGroup[] = [
       ],
     ],
   },
+  {
+    name: 'z.enum()',
+    testCases: [
+      [
+        'z.enum(["a", "b"])',
+        z.enum(['a', 'b']),
+        { bsonType: 'string', enum: ['a', 'b'] },
+      ],
+    ],
+  },
 ]
 
 export default testCases
