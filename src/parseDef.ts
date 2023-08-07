@@ -4,6 +4,7 @@ import { DefParser, ZodDef } from './DefParser'
 import { MongoSchema, MongoSchemaBool, MongoSchemaNull } from './MongoSchema'
 import parseArrayDef from './defParsers/parseArrayDef'
 import parseDateDef from './defParsers/parseDateDef'
+import parseEnumDef from './defParsers/parseEnumDef'
 import parseNullableDef from './defParsers/parseNullableDef'
 import parseNumberDef from './defParsers/parseNumberDef'
 import parseObjectDef from './defParsers/parseObjectDef'
@@ -46,4 +47,5 @@ const parseFnByKind: ParserFnByKind = {
   }),
   [ZodFirstPartyTypeKind.ZodArray]: parseArrayDef,
   [ZodFirstPartyTypeKind.ZodNullable]: parseNullableDef,
+  [ZodFirstPartyTypeKind.ZodEnum]: parseEnumDef,
 }
