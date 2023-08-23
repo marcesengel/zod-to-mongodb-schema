@@ -60,7 +60,7 @@ Not that unsupported validators can be used in your schema, they will result in 
 | `tuple()` | WIP | - |
 | `record()` | WIP | - |
 | `literal()` | WIP | - |
-| `enum()` | WIP | - |
+| `enum()` | &#9989; | Credit @exsjabe! |
 | `nativeEnum()` | WIP | - |
 | `map()` | &#10060; | See `bigint()`. |
 | `set()` | &#10060; | See `bigint()`. |
